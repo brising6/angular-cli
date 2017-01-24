@@ -1,0 +1,10 @@
+FROM node:7.0
+
+RUN useradd --user-group --create-home --shell /bin/false app
+
+ENV HOME=/home/app
+WORKDIR $HOME
+
+RUN npm install -g angular-cli && npm cache clean
+
+EXPOSE 4200
